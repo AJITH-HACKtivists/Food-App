@@ -26,7 +26,7 @@ class Splash : AppCompatActivity() {
         eater.startAnimation(animation)
         desc.startAnimation(animation2)
         Handler().postDelayed({
-            val intent = Intent(this,Fooditems::class.java)
+            val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
         },5000)
     }
