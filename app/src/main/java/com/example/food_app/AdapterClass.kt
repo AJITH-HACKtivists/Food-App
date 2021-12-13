@@ -1,13 +1,17 @@
 package com.example.food_app
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 
-class AdapterClass(var songs:List<String>):RecyclerView.Adapter<AdapterClass.ViewHolder>() {
+class AdapterClass(var songs:MutableList<Fooditemsdata>):RecyclerView.Adapter<AdapterClass.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater:LayoutInflater= LayoutInflater.from(parent.context)
         val view=inflater.inflate(R.layout.items,parent,false)
@@ -16,7 +20,9 @@ class AdapterClass(var songs:List<String>):RecyclerView.Adapter<AdapterClass.Vie
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-       holder.text1.text=songs[position]
+       holder.text1.text=songs[position].type
+        holder.text2.text="${songs[position].price}"
+        Picasso.get().load(songs[position].url).into(holder.image);
     }
 
     override fun getItemCount(): Int {

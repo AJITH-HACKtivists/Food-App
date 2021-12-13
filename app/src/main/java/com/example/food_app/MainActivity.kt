@@ -59,7 +59,6 @@ class MainActivity : AppCompatActivity() {
     fun choosePhotoFromGallary() {
         val galleryIntent = Intent(Intent.ACTION_PICK,
             MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-
         startActivityForResult(galleryIntent, GALLERY)
     }
 
@@ -106,7 +105,6 @@ class MainActivity : AppCompatActivity() {
         Log.d("fee",wallpaperDirectory.toString())
         if (!wallpaperDirectory.exists())
         {
-
             wallpaperDirectory.mkdirs()
         }
 
